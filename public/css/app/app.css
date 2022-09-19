@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.primary-color{
+    color: #00302E;
+}
+
+.secondary-color{
+    color: #FF5C35;
+}
+
+.link-color {
+    color: #5291AE;
+}
+
+.text-title1{
+    color: #00302E;
+    font-weight: 50;
+    font-size: 24px;
+}
+
+.text-title2{
+    color: #00302E;
+    font-weight: 50;
+    font-size: 14px;
+}
+
+.default-btn{
+    background-color: #FF5C35;
+    color: #ffffff;
+}
+
+
+/* SVG STYLES and INPUT STYLES */
+
+#signup-form svg path{
+    fill: #ffffff;
+}
+#signup-form .backBtn svg path{
+    fill: #5291AE;
+}
+#signup-form svg{
+    width: 24px;
+    height: 24px;
+}
+input:focus{
+    border: 1.5px solid #FF5C35;
+}
+#company_size .custom-border:hover{
+    border: .5px solid #FF5C35;
+}
+.custom-border:hover{
+    border: .5px solid #FF5C35;
+}
+.hosting-data .location:hover{
+    border: 1px solid #FF5C35;
+}
+
+/* END OF SVG STYLES and INPUT STYLES */
+
+
+
+/* Styling the progress bar. */
+progress::-webkit-progress-bar {
+    background-color: rgb(244, 244, 244);
+    height: 6px;
+    transition: 1.0s;
+    margin-top: -3px;
+}
+
+progress::-webkit-progress-value {
+    background-color: #FF5C35 !important;
+    height: 6px;
+    transition: 1.0s;
+    margin-top: -3px;
+}
+/* END OF PROGRESS BAR STYLES */
+
+#errorPage svg path{
+    fill: #00302E;
+}
+#errorPage svg {
+    width: 90px;
+    width: 90px;
+}

@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+.primary-color{
+    color: #00302E;
+}
+.secondary-color{
+    color: #FF5C35;
+}
+
+.link-color {
+    color: #5291AE;
+}
+
+.text-title1{
+    font-weight: 50;
+    font-size: 20px;
+}
+
+.text-title2{
+    font-weight: 50;
+    font-size: 14px;
+}
+
+.default-btn{
+    background-color: #FF5C35;
+    color: #ffffff;
+}
+
+
+
+/* Below Styles for dashboard Nav Bar */
+
+#leftNavbar img{
+    height: 40px;
+}
+
+#leftNavbar .sub-nav{
+    top: 50px;
+}
+
+#leftNavbar .sub-nav svg {
+    width: 15px;
+    height: 15px;
+}
+
+#leftNavbar .sub-nav svg path {
+    fill: #FF5C35;
+}
+
+#leftNavbar svg {
+    width: 8px;
+    height: 8px;
+}
+
+#leftNavbar svg path {
+   fill: #FF5C35;
+}
+
+#rightNavbar svg{
+    width: 18px;
+    height: 18px;
+}
+
+#rightNavbar svg path {
+    fill: #FF5C35;
+ }
+
+ #rightNavbar #user-profile svg path{
+    fill: #FF5C35;
+ }
+
+ progress::-webkit-progress-bar {
+    background-color: rgb(244, 244, 244);
+    height: 7px;
+    transition: 1.0s;
+    margin-top: -3px;
+}
+
+progress::-webkit-progress-value {
+    background-color: #FF5C35 !important;
+    height: 7px;
+    transition: 1.0s;
+    margin-top: -3px;
+}
+/* End Styles for dashboard Nav Bar */
