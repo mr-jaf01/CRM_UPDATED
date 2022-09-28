@@ -28,7 +28,7 @@ class authController extends Controller
     public function loginPage()
     {
         if(Session::get('userid')){
-            return redirect('/crm/clients/'.Session::get('userid'));
+            return redirect('/crm/clients/'.Session::get('userid').'/objects/view/all/list');
         }
         return view('app.auth.login');
     }
@@ -51,12 +51,14 @@ class authController extends Controller
         if($login_user && Hash::check($request->password, $login_user->password))
         {
             $request->session()->put('userid', $login_user->id);
-            return redirect('/crm/clients/'.$login_user->id.'/?token='.$request->_token);
+            return redirect('/crm/clients/'.$login_user->id.'/objects/view/all/list?token='.$request->_token);
         }
         return back()->with('error', 'Invalid login credentials');
 
 
-       } catch (\Throwable $th) {
+       } catch (\Throwable $th)
+
+       {
         return redirect('/error/?msg=login');
        }
     }
@@ -74,7 +76,7 @@ class authController extends Controller
     {
         if(Session::get('userid'))
         {
-            return redirect('/crm/clients/'.Session::get('userid'));
+            return redirect('/crm/clients/'.Session::get('userid').'/objects/view/all/list');
         }
         return view('app.auth.signup');
     }

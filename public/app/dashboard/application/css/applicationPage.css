@@ -1,0 +1,12 @@
+#addApplicationWindow svg{
+    width: 25px;
+    height: 25px;
+}
+#addApplicationWindow svg path{
+   fill: #FF5C35;
+}
+
+#addApplicationWindow main{
+    height: 450px;
+}
+

@@ -1,5 +1,5 @@
 @extends('app.onboarding.layout.masterlayout')
-@section('title', 'Onboarding & Personalisation')
+@section('title', 'Internal Server Error')
 @section('content')
 <section  style="margin:auto; max-width:600px;">
     <header>

@@ -7,6 +7,12 @@
     <title>CRMTop @yield('title')</title>
     <link rel="icon" type="image/x-icon" href={{asset('/logo/logo2.png')}}>
     <link rel="stylesheet" href={{asset('/css/app/dashboard.css')}}>
+
+    <link rel="stylesheet" href={{asset('/app/dashboard/client/css/clientPage.css')}}>
+    <link rel="stylesheet" href={{asset('/app/dashboard/agent/css/agentPage.css')}}>
+    <link rel="stylesheet" href={{asset('/app/dashboard/application/css/applicationPage.css')}}>
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     @vite('resources/css/app.css')
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
@@ -17,7 +23,7 @@
     <progress class="w-full hidden animate__animated animate__slideInLeft fixed" value="70" max="100" id="progressBar">Hello wolrd</progress>
 
 
-    <header class="bg-white shadow-md">
+    <header class="bg-white shadow-md hidden md:block">
 
         <div class="flex justify-between px-3">
 
@@ -30,7 +36,7 @@
                 <div id="client-link">
 
                     <a class="flex items-center py-4 px-3 hover:bg-gray-50 cursor-pointer">
-                        <small class="pr-1 text-title2 hover:font-bold">Clients</small>
+                        <small class="pr-1 text-title2 hover:font-bold tracking-wide">Clients</small>
                         <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z" fill="#292D32"/>
                         </svg>
@@ -39,7 +45,7 @@
                     <!--- Client Sub Nav -->
                     <div id="clients-sub-nav" class="hidden peer-hover:flex absolute w-44  flex-col bg-gray-50 sub-nav">
 
-                        <a href="#" class="flex items-center py-3 px-1 hover:bg-gray-100">
+                        <a href={{route('clients.page', ['userid'=>Session::get('userid')])}} class="flex items-center py-3 px-1 hover:bg-gray-100">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 18.95C9.38 18.95 7.25 16.82 7.25 14.2C7.25 11.58 9.38 9.44995 12 9.44995C14.62 9.44995 16.75 11.58 16.75 14.2C16.75 16.82 14.62 18.95 12 18.95ZM12 10.95C10.21 10.95 8.75 12.41 8.75 14.2C8.75 15.99 10.21 17.45 12 17.45C13.79 17.45 15.25 15.99 15.25 14.2C15.25 12.41 13.79 10.95 12 10.95Z" fill="#292D32"/>
                                 <path d="M11.4409 15.8301C11.1209 15.8301 10.8009 15.7101 10.5609 15.4701L9.91086 14.8201C9.62086 14.5301 9.62086 14.0501 9.91086 13.7601C10.2009 13.4701 10.6809 13.4701 10.9709 13.7601L11.4509 14.2401L13.0609 12.7601C13.3609 12.4801 13.8409 12.5001 14.1209 12.8001C14.4009 13.1001 14.3809 13.5801 14.0809 13.8601L12.3009 15.5001C12.0509 15.7201 11.7509 15.8301 11.4409 15.8301Z" fill="#292D32"/>
@@ -51,7 +57,7 @@
                             <small class="text-title2 ml-1">Clients</small>
                         </a>
 
-                        <a href="#" class="flex items-center py-3 px-1 hover:bg-gray-100">
+                        <a href={{route('agents.page', ['userid'=>Session::get('userid')])}} class="flex items-center py-3 px-1 hover:bg-gray-100">
                             <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13 22.75H5C2.58 22.75 1.25 21.42 1.25 19V11C1.25 8.58 2.58 7.25 5 7.25H10C10.41 7.25 10.75 7.59 10.75 8V19C10.75 20.58 11.42 21.25 13 21.25C13.41 21.25 13.75 21.59 13.75 22C13.75 22.41 13.41 22.75 13 22.75ZM5 8.75C3.42 8.75 2.75 9.42 2.75 11V19C2.75 20.58 3.42 21.25 5 21.25H9.79999C9.43999 20.66 9.25 19.91 9.25 19V8.75H5Z" fill="#292D32"/>
                                 <path d="M10 8.75H5C4.59 8.75 4.25 8.41 4.25 8V6C4.25 4.48 5.48 3.25 7 3.25H10.11C10.34 3.25 10.56 3.35998 10.7 3.53998C10.84 3.72998 10.89 3.97 10.83 4.19C10.77 4.41 10.75 4.66 10.75 5V8C10.75 8.41 10.41 8.75 10 8.75ZM5.75 7.25H9.25V5C9.25 4.91 9.25 4.83 9.25 4.75H7C6.31 4.75 5.75 5.31 5.75 6V7.25Z" fill="#292D32"/>
@@ -109,7 +115,7 @@
 
                 <div id="conversation-link">
                     <a class="flex items-center py-4 px-3 hover:bg-gray-50 cursor-pointer">
-                        <small class="pr-1 text-title2 hover:font-bold">Conversations</small>
+                        <small class="pr-1 text-title2 hover:font-bold tracking-wide">Conversations</small>
                         <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z" fill="#292D32"/>
                         </svg>
@@ -162,7 +168,7 @@
 
                 <div id="marketing-link">
                     <a class="flex items-center py-4 px-3 hover:bg-gray-50 cursor-pointer">
-                        <small class="pr-1 text-title2 hover:font-bold">Marketing</small>
+                        <small class="pr-1 text-title2 hover:font-bold tracking-wide">Marketing</small>
                         <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z" fill="#292D32"/>
                         </svg>
@@ -243,14 +249,14 @@
 
                 <div id="sales-link">
                     <a class="flex items-center py-4 px-3 hover:bg-gray-50 cursor-pointer">
-                        <small class="pr-1 text-title2 hover:font-bold">Sales</small>
+                        <small class="pr-1 text-title2 hover:font-bold tracking-wide">Sales</small>
                         <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z" fill="#292D32"/>
                         </svg>
                     </a>
                     <div id="sales-sub-nav" class="absolute w-44 peer-hover:flex flex-col bg-gray-50 sub-nav hidden">
 
-                        <a href="#" class="flex items-center py-3 px-1 hover:bg-gray-100">
+                        <a href={{route('applications.page', ['userid'=>Session::get('userid')])}} class="flex items-center py-3 px-1 hover:bg-gray-100">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8.99945 17.75C8.58945 17.75 8.24945 17.41 8.24945 17V12.81L7.52945 13.53C7.23945 13.82 6.75945 13.82 6.46945 13.53C6.17945 13.24 6.17945 12.76 6.46945 12.47L8.46945 10.47C8.67945 10.26 9.00945 10.19 9.28945 10.31C9.56945 10.42 9.74945 10.7 9.74945 11V17C9.74945 17.41 9.40945 17.75 8.99945 17.75Z" fill="#292D32"/>
                                 <path d="M10.9995 13.7499C10.8095 13.7499 10.6195 13.6799 10.4695 13.5299L8.46945 11.5299C8.17945 11.2399 8.17945 10.7599 8.46945 10.4699C8.75945 10.1799 9.23945 10.1799 9.52945 10.4699L11.5295 12.4699C11.8195 12.7599 11.8195 13.2399 11.5295 13.5299C11.3795 13.6799 11.1895 13.7499 10.9995 13.7499Z" fill="#292D32"/>
@@ -311,7 +317,7 @@
                 <div id="services-link">
 
                     <a class="flex items-center py-4 px-3 hover:bg-gray-50 cursor-pointer">
-                        <small class="pr-1 text-title2 hover:font-bold">Services</small>
+                        <small class="pr-1 text-title2 hover:font-bold tracking-wide">Services</small>
                         <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z" fill="#292D32"/>
                         </svg>
@@ -362,7 +368,7 @@
 
                 <div id="workflow-link">
                     <a href="#" class="flex items-center py-4 px-2 hover:bg-gray-50">
-                        <small class="pr-1 text-title2 hover:font-bold">Workflows</small>
+                        <small class="pr-1 text-title2 hover:font-bold tracking-wide">Workflows</small>
                     </a>
                     <div id="workflow-sub-nav"></div>
                 </div>
@@ -370,7 +376,7 @@
                 <div id="report-link">
 
                     <a class="flex items-center py-4 px-3 hover:bg-gray-50 cursor-pointer">
-                        <small class="pr-1 text-title2 hover:font-bold">Reports</small>
+                        <small class="pr-1 text-title2 hover:font-bold tracking-wide">Reports</small>
                         <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z" fill="#292D32"/>
                         </svg>
@@ -463,7 +469,7 @@
                         </svg>
                     </a>
 
-                    <div id="user-profile" class="top-14 right-1 absolute shadow-lg rounded-md border w-80 mr-4 hidden">
+                    <div id="user-profile" class="top-14 right-1 absolute shadow-lg rounded-md border w-80 mr-4 hidden bg-white">
 
                         <div id="personal-info" class="flex flex-row justify-between items-center py-4 px-2">
                             <div class="img-profile flex items-center justify-center">

@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\app\auth\authController;
 use App\Http\Controllers\app\dashboard\dashboardController;
+use App\Http\Controllers\app\dashboard\clients\clientController;
+use App\Http\Controllers\app\dashboard\agents\agentController;
+use App\Http\Controllers\app\dashboard\applicationn\applicationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -56,14 +60,41 @@ Route::prefix('auth')->group(function ()
 
 
 
-/* All Dashboard Routes group */
-Route::prefix('crm')->group(function ()
+
+/* A group of routes that are prefixed with `crm/clients` */
+Route::prefix('crm/clients')->group(function ()
 {
 
-    Route::controller(dashboardController::class)->group(function ()
-    {
-        Route::get('/clients/{userid}/', 'index')->name('clients.page');
-    });
+        Route::controller(clientController::class)->group(function ()
+        {
+            Route::get('/{userid}/objects/view/all/list', 'index')->name('clients.page');
+        });
+
+
+});
+
+
+/* A group of routes that are prefixed with `crm/agents` */
+Route::prefix('crm/agents')->group(function ()
+{
+
+        Route::controller(agentController::class)->group(function ()
+        {
+            Route::get('/{userid}/objects/view/all/list', 'index')->name('agents.page');
+        });
+
+
+});
+
+
+/* A group of routes that are prefixed with `crm/applications` */
+Route::prefix('crm/applications')->group(function ()
+{
+
+        Route::controller(applicationController::class)->group(function ()
+        {
+            Route::get('/{userid}/objects/view/all/list', 'index')->name('applications.page');
+        });
 
 
 });

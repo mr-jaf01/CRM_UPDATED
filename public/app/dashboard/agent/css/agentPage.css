@@ -1,0 +1,12 @@
+#addAgentWindow svg{
+    width: 25px;
+    height: 25px;
+}
+#addAgentWindow svg path{
+   fill: #FF5C35;
+}
+
+#addAgentWindow main{
+    height: 450px;
+}
+

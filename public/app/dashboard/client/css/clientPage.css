@@ -1,0 +1,18 @@
+#addClientWindow svg{
+    width: 25px;
+    height: 25px;
+}
+#addClientWindow svg path{
+   fill: #FF5C35;
+}
+
+#addClientWindow main{
+    height: 450px;
+}
+input:focus{
+    border: 1.5px solid #FF5C35;
+}
+select:focus{
+    border: 1.5px solid #FF5C35;
+}
+
